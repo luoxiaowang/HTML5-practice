@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        canvas{
+            border: 1px solid #ccc;
+            margin: 0 auto;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<canvas id="canvas">
+    不支持cavas
+</canvas>
+<script>
+    window.onload = function(){
+        var canvas = document.getElementById("canvas");
+        canvas.width = 1024;
+        canvas.height = 500;
+
+        var context = canvas.getContext("2d");
+
+        context.beginPath();
+        //画个矩形，和fillRect最大的区别在于，需要stroke()或者fill()之后才会作用于画布
+        /*x	矩形左上角的 x 坐标
+         y	矩形左上角的 y 坐标
+         width	矩形的宽度，以像素计
+         height	矩形的高度，以像素计*/
+        context.rect(100,100,200,200);
+        context.closePath();
+
+        context.fillStyle="red";
+        context.strokeStyle="blue";
+        context.fill();
+        context.stroke();
+
+        context.fillRect(400,300,100,100);
+        context.strokeRect(600,300,100,100);
+
+
+    }
+</script>
+</body>
+</html>

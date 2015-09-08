@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        canvas{
+            border: 1px solid #ccc;
+            margin: 0 auto;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<canvas id="canvas">
+    不支持cavas
+</canvas>
+<script>
+    window.onload = function(){
+        var canvas = document.getElementById("canvas");
+        canvas.width = 1024;
+        canvas.height = 500;
+
+        var context = canvas.getContext("2d");
+
+        context.beginPath();
+        //从哪里开始
+        context.moveTo(100,100);
+        //画到哪里去
+        context.lineTo(300,300);
+        context.lineTo(100,300);
+        context.lineTo(100,100);
+        context.closePath();
+
+        context.lineWidth = 5;
+        context.strokeStyle = "blue";
+        context.stroke();
+
+        context.beginPath();
+        context.moveTo(200,100);
+        context.lineTo(500,200);
+        context.closePath();
+        context.strokeStyle = "red";
+        context.stroke();
+
+    }
+</script>
+</body>
+</html>

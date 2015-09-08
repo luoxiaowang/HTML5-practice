@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        canvas{
+            border: 1px solid #ccc;
+            margin: 0 auto;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<canvas id="canvas">
+    不支持cavas
+</canvas>
+<script>
+    window.onload = function(){
+        var canvas = document.getElementById("canvas");
+        canvas.width = 1024;
+        canvas.height = 500;
+
+        var context = canvas.getContext("2d");
+        context.save();
+        //a,d为scale, b,c为斜切变形,  e,f为位移
+        //transform每次都是基于上次来变形的，除非使用setTransform来设置
+        context.transform(1,0.5,0,1,400,0);
+        context.beginPath();
+        context.rect(100,0,200,200);
+        context.closePath();
+
+        context.fillStyle="red";
+        context.strokeStyle="blue";
+        context.fill();
+        context.stroke();
+        context.restore();
+
+
+    }
+</script>
+</body>
+</html>

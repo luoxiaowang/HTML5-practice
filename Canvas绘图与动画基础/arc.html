@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        canvas{
+            border: 1px solid #ccc;
+            margin: 0 auto;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<canvas id="canvas">
+    不支持cavas
+</canvas>
+<script>
+    window.onload = function(){
+        var canvas = document.getElementById("canvas");
+        canvas.width = 1024;
+        canvas.height = 500;
+
+        var context = canvas.getContext("2d");
+
+        context.lineWidth = 5;
+        context.strokeStyle = "red";
+        //圆心为300,250,半径为200,从0弧度的位置到1.5弧度的位置,最后有一个可选参数true,则逆向绘制
+        //坐标,半径,起始弧度,结束弧度,方向(顺时针,逆时针)
+        //弧度=角度*Math.PI/180
+        //右边中间为起始点
+        context.arc(300,250,200,0,1.5*Math.PI);
+        context.stroke();
+    }
+</script>
+</body>
+</html>
